@@ -64,3 +64,7 @@ local.properties
 **/ios/Flutter/Generated.xcconfig 
 **/ios/Flutter/flutter_export_environment.sh
 .pub-cache/
+
+# 20260712
+.wrangler/cache/
+.wrangler-account.json
