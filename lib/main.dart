@@ -11,7 +11,7 @@ class CounterApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Counter',
+      title: 'Web Counter',
       theme: ThemeData.dark(),
       home: const CounterPage(),
     );
@@ -91,6 +91,12 @@ class _CounterPageState extends State<CounterPage> {
             icon: const Icon(Icons.settings),
             onPressed: () {
               //設定画面へ遷移
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const HelpPage(),
+                ),
+              );
             }
           )
         ],
@@ -121,6 +127,39 @@ class _CounterPageState extends State<CounterPage> {
               fontWeight: FontWeight.bold,
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class HelpPage extends StatelessWidget {
+  const HelpPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("使い方・注意事項"),
+      ),
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(16),
+        child: Text(
+          """
+          【使い方】
+          ・画面のどこをタップしてもカウントが1増えます。
+          ・長押しするとメニューが表示されます。
+          
+          【使用上の注意】
+          ・ページを再読み込みするとカウントは初期化されます。
+          ・ブラウザによって長押しの操作が異なる場合があります。
+          
+          【免責事項】
+          ・本アプリの利用によるいかなる損害も、開発者は責任を負いません。
+          【プライバシーポリシー】
+          【お問い合わせ】
+          """,
+          style: TextStyle(fontSize: 18),
         ),
       ),
     );
